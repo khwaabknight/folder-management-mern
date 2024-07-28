@@ -1,0 +1,19 @@
+{
+  "name": "proindia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-deps": "cd frontend && npm install && cd ../backend && npm install",
+    "dev-ui": "cd frontend && npm run dev",
+    "dev-server": "cd backend && npm run dev",
+    "dev": "concurrently --names \"client,server\" --prefix-colors \"bgGreen,bgBlue\" \"npm run dev-ui\" \"npm run dev-server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
