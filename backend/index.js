@@ -17,7 +17,7 @@ dbConnect();
 cloudinaryConnect();
 
 app.use(cors({
-  origin: '*',
+  origin: JSON.parse(process.env.CLIENT_URL),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 }))
@@ -34,8 +34,14 @@ app.use(
 )
 
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.send('Hello World!')
+})
+
+app.get('/health-check', (_, res) => {
+  return res.status(200).json({
+    message: "Server is running ❤️"
+  })
 })
 
 app.use("/api/v1/users", userRouter);

@@ -30,7 +30,7 @@ function Signup() {
                 toast.success("Signup successful")
             })
             .catch(error => {
-                console.log(error.response.data)
+                console.log(error)
                 toast.error("Signup failed")
             });
     }
