@@ -18,7 +18,6 @@ function App() {
     api.get('/users/current-user').then(res => {
       console.log(res)
       dispatch(setUser({user:res.data.data}))
-
     }).catch(err => {
       console.log(err)
       dispatch(setUser({user:null}))

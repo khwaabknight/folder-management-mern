@@ -25,7 +25,7 @@ api.interceptors.response.use(
     const originalRequest = error.config;
 
     // If the error is due to an expired token (assuming API returns a specific status code)
-    if (error.response.status === 401 && !originalRequest._retry) {
+    if (error?.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
@@ -43,6 +43,7 @@ api.interceptors.response.use(
         return Promise.reject(refreshError);
       }
     }
+    console.log('Response error', error);
     return Promise.reject(error);
   }
 );
