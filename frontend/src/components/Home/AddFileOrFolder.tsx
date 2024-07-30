@@ -47,7 +47,7 @@ function AddFileOrFolder({currentDirectory, getFoldersUsingId}: AddFileOrFolderP
 
 
         console.log(formdata)
-        api.post('/files',formdata).then(response => {
+        api.post('/api/v1/files',formdata).then(response => {
             console.log('File added: ', response);
             getFoldersUsingId(currentDirectory?._id);
         }).catch(error => {
@@ -56,7 +56,7 @@ function AddFileOrFolder({currentDirectory, getFoldersUsingId}: AddFileOrFolderP
     }
 
     const handleAddFolder = () => {
-        api.post('/folders',{
+        api.post('/api/v1/folders',{
             ...formData,
             parentFolder:currentDirectory._id,
             location: currentDirectory?.location + formData.folderName + '/',

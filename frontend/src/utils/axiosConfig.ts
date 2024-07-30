@@ -2,10 +2,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL + "/api/v1",
-  withCredentials: true,
-});
+const api = axios.create({withCredentials: true});
 
 //Request interceptor
 api.interceptors.request.use(

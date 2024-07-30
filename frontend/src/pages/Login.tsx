@@ -41,7 +41,7 @@ function Login() {
     const submitHandler = (e:any) => {
         e.preventDefault();
         console.log(formData)
-        api.post('/users/login', formData)
+        api.post('/api/v1/users/login', formData)
             .then(response => {
                 console.log(response)
                 const user = response?.data?.data?.user;

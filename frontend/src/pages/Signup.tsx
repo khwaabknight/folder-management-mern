@@ -23,7 +23,7 @@ function Signup() {
     const submitHandler = async (e:any) => {
         console.log(formData)
         e.preventDefault();
-        api.post('/users/register', formData)
+        api.post('/api/v1/users/register', formData)
             .then(response => {
                 console.log(response)
                 navigate('/login')

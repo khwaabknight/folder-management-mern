@@ -16,7 +16,7 @@ function UserInfo() {
 
     const handleLogout = async () => {
         try {
-          const response = await api.post('/users/logout');
+          const response = await api.post('/api/v1/users/logout');
           console.log('Logout response: ', response);
           dispatch(resetUser());      
           navigate('/login');

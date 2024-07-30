@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    api.get('/users/current-user').then(res => {
+    api.get('/api/v1/users/current-user').then(res => {
       console.log(res)
       dispatch(setUser({user:res.data.data}))
     }).catch(err => {

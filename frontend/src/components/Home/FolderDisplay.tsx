@@ -20,7 +20,7 @@ function FolderDisplay() {
     const {user} = useSelector((state:RootState) => state.user)
 
     const getFoldersUsingId = (folderId: string | undefined) => {
-        api.get(`/folders/${folderId ?? ""}`).then(response => {
+        api.get(`/api/v1/folders/${folderId ?? ""}`).then(response => {
             console.log(response)
             setCurrentDirectory(response.data[0]);
             setFolders(response.data[0].childrenFolders);
@@ -41,7 +41,7 @@ function FolderDisplay() {
 
     const searchFiles = (e:any) => {
         e.preventDefault();
-        api.get(`/files/${searchQuery}`).then(response => {
+        api.get(`/api/v1/files/${searchQuery}`).then(response => {
             console.log(response)
             setFolders([]);
             setFiles(response.data)
@@ -102,9 +102,9 @@ function FolderDisplay() {
                         </button>
                     ))}
                     {files.map((file: any) => (
-                        <Dialog>
+                        <Dialog key={file._id}>
                             <DialogTrigger asChild>
-                                <button key={file._id} className="border border-gray-200 rounded-lg p-2 flex flex-col items-center gap-2">
+                                <button className="border border-gray-200 rounded-lg p-2 flex flex-col items-center gap-2">
                                     <div className="w-24 h-24 aspect-square overflow-hidden rounded-full bg-gray-200">
                                         <img src={file.imageUrl} alt="" />
                                     </div>

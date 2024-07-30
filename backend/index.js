@@ -16,11 +16,7 @@ const port = process.env.PORT || 3000;
 dbConnect();
 cloudinaryConnect();
 
-app.use(cors({
-  origin: JSON.parse(process.env.CLIENT_URL),
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-}))
+// app.use(cors());
 
 app.use(express.json())
 // app.use(express.urlencoded({extended: true, limit: "16kb"}))
